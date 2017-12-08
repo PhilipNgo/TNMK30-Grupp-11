@@ -7,7 +7,7 @@
 		$search = strip_tags($_POST["search"]); //real_escape string för säkerhet
 		echo $search;
 
-	$query = mysqli_query($connection,	"SELECT * FROM inventory WHERE ItemID = '$search'"); //hämtar alla matchande ColorID (funkar inte)
+	$query = mysqli_query($connection,	"SELECT * FROM inventory WHERE ItemID LIKE '%$search%'"); //hämtar alla matchande ColorID (funkar inte)
 		
 
 		
