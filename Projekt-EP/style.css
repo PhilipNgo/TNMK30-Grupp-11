@@ -1,0 +1,10 @@
+body
+{
+	background-image:url('avocado.jpeg');
+	background-size:cover;
+}
+th, td
+{
+	border:1px solid black;
+	
+}

@@ -14,10 +14,6 @@
 
 	
 	$convert_nametoID = mysqli_query($connection, "SELECT SetID, Year FROM sets WHERE Setname = '$search'");
-	
-	 
-	 
-	 
 	 
 	 
 	 
@@ -25,28 +21,40 @@
 	{	
 		$result_sats_name = $row['Setname'];
 		$result_sats_Year = $row['Year'];
-		echo "Följande sats hittades: '". $result_sats_name. "' <br>";
-		echo "Satsen var utigven år: ".$result_sats_Year;
-		echo "<br><br>";	
-	}
+		
+	
 
 	while($row3 = mysqli_fetch_array($convert_nametoID)) //Konversion till ID från Setname
-	 
 		{	
-			$result_setID = $row3['SetID'];
-			echo $result_sats_name." har ID:et '".$result_setID."'";
-			echo "<br>";
-			$get_parts = mysqli_query($connection, "SELECT * FROM inventory WHERE SetID = '$result_setID'");
-		}
+		$result_setID = $row3['SetID'];
+		
+			echo "<table><tr>";
+			echo "<th>Sats</th>";
+			echo "<th>Utgiven</th>";
+			echo "<th>SetID</th></tr>";
+			
+			echo "<tr><td>". $result_sats_name."</td>";
+			echo "<td>".$result_sats_Year. "</td>";
+			echo "<td>".$result_setID."</td>";
+			echo "<br></tr></table>";
+			
+			$get_parts = mysqli_query($connection, "SELECT * FROM inventory
+			WHERE SetID = '$result_setID'");
+		
 		while($row2 = mysqli_fetch_array($get_parts)) //Bitarna som är kopplade till setID
 		{	
-			$result_parts = $row2['ItemID'];
-			echo $result_parts;
-			echo "  <br>";	
+			$result_partsID = $row2['ItemID'];
+			$results_partsColor = $row2['ColorID'];
+			$results_partsQuantity = $row2['Quantity'];
+			echo "PartID:".$result_partsID;
+			echo "Color:".$results_partsColor;
+			echo "Quanitity:".$results_partsQuantity;
+			echo "<br>";	
 		}
+		}
+	}
 	
-	
-	
+	echo "<img src='avocado-chan.jpg' alt = 'avobabe'>";
 
 	
 ?>

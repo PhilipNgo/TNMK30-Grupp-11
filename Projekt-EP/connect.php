@@ -4,6 +4,7 @@
 
 <head>
 <link rel='shortcut icon' type='image/x-icon' href='icon.jpg' />
+<link rel="stylesheet" type="text/css" href="style.css">
 <title>Legosökning</title>
 </head>
 
