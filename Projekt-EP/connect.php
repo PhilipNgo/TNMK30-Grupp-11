@@ -1,3 +1,11 @@
+<!doctype html>
+
+<html>
+
+<head>
+<link rel='shortcut icon' type='image/x-icon' href='icon.jpg' />
+<title>Legosökning</title>
+</head>
 
 <?PHP
 $connection	=	mysqli_connect("mysql.itn.liu.se", "lego" , "" , "lego"); //kopplar upp mot databasen lego
@@ -6,5 +14,11 @@ $connection	=	mysqli_connect("mysql.itn.liu.se", "lego" , "" , "lego"); //koppla
 	{
 		die("Connection failed: " . $conn->connect_error);
 	} 
-	echo "Connected successfully to datatase: Lego";
+
 	?>
+	
+	</body>
+
+
+
+</html>
