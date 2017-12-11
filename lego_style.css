@@ -27,6 +27,7 @@ ul{
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
     -webkit-padding-start: 0px;
+	
 }
 li{
 	background-color: #BED0C8;
@@ -38,6 +39,8 @@ li{
 table, td, th {
     border: 1px solid black;
 	border-collapse: collapse;
+	margin-left: auto;
+	margin-right: auto;
 }
 .knapp{
 	display: block;
@@ -50,18 +53,22 @@ table, td, th {
 	text-decoration: none;
 	
 }
-a:hover{
-	background-color: #C9D8D2;
-}
 .tabell{
 	padding: 5vw;
 	display: block;
-	width: 70vw;
+	width: 41vw;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
 	border: 2px;
 	background-color: #BED0C8;
+}
+.links{
+		width: 1000px;
+		
+}	
+a:hover{
+	background-color: #C1C4C0;
 }
 #sok{
 	width: 1000px;
@@ -86,10 +93,18 @@ a:hover{
 	width: 790px;
 }
 #block{
-	background-color: white;
+	background-color:#C1C4C0;
 	width: 1500px;
-	height: 1048px;
+	height: auto;
 	margin-left: auto;
 	margin-right: auto;
 	padding-top: 25px;
+	padding-bottom: 280px;
+}
+
+#lankar {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	width: 800px;
 }

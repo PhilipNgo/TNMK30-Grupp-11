@@ -9,8 +9,8 @@
 		<div id="block">
 		<div id="header"><h1>Lego</h1>
 			<ul>
+				<li><a class="knapp" href="startsida.php">Välkommen</a></li>
 				<li><a class="knapp" href="EP_projekt.php">Lego samling</a></li>
-				<li><a class="knapp" href="lank.php">Länk</a></li>
 			</ul>
 		</div>
 		<div id="sok">
@@ -25,10 +25,16 @@
 		?>
 		</div>
 		
-		<h3 id="intro-text">Hej Niklas! Här kommer din personliga sida för din lego samling. Ovanför i menyn kan du
-		se hela din samling, söka på saknade bitar för ditt nya projekt samt hitta länkar till olika sidor som
-		kan sälja de bitar du saknar!</h3>
+		<h3 id="intro-text">Om det skulle visa sig att du saknar bitar i din enorma samling 
+		så kanske dessa sidor kan hjälpa dig att hitt det du behöver</h3>
+		
+		<div id="lankar">
+			<ul>
+				<li class="links"><a  href="https://ebrix.se/">Ebrix</a></li> <br> 
+				<li class="links"><a  href="https://www.brickowl.com/">Brick Owl</a></li><br> 
+				<li class="links"><a  href="https://www.bricklink.com/v2/main.page">Bricklink</a></li>
+			</ul>
+		</div>
 		</div>		
 	</body>
 </html>
-

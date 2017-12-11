@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+	<div id="block">
 	<head>
 		<meta charset="utf-8" />
 		<title>EP Projekt</title>
@@ -8,10 +9,10 @@
 
 	<body>
 		<div id="header">
-		<h1>Personlig Samling:</h1>
+		<h1>Personlig Samling</h1>
 			<ul>
 				<li><a class="knapp" href="startsida.php">Välkommen</a></li>
-				<li><a class="knapp" href="links.html">Länk</a></li>
+				<li><a class="knapp" href="lank.php">Länk</a></li>
 			</ul>
 		</div>
 		<div class="tabell">
@@ -32,6 +33,7 @@
 	$convert_nametoID = mysqli_query($connection, "SELECT SetID, Year FROM sets WHERE Setname = '$search'");
 	
 	?>
+	
 		</div>
 		<br>
 		<div class="tabell">
@@ -140,6 +142,7 @@
 			 // An additional query for minifigs is required to show the full contents of a typical set.
 			 // The structure for that query and its presentation is very similar to the parts list above.
 			?>
+		</div>
 		</div>
 	</body>
 </html>
