@@ -68,6 +68,7 @@
 			  print("<th>Color</th>");
 			  print("<th>SetID</th>");
 			  print("<th>Partname</th>");
+			  print("<th>Year</th>");
 			  print "</tr>\n";
 			  
 			  
@@ -113,11 +114,12 @@
 					 $filename = "P/$ColorID/$ItemID.jpg";
 					}
 					
-					$contents_setname = mysqli_query($connection, "SELECT sets.Setname FROM sets WHERE SetID LIKE '$SetID'");
+					$contents_setname = mysqli_query($connection, "SELECT * FROM sets WHERE SetID LIKE '$SetID'");
 					
 					while($row = mysqli_fetch_array($contents_setname)) 
 					{
 					$Setname = $row['Setname'];
+					$Year = $row['Year'];
 					print("<td>$Setname</td>");
 					}
 					print("<td>$Quantity</td>");
@@ -141,6 +143,7 @@
 						print("<td>$Colorname</td>");
 						print("<td>$SetID</td>");
 						print("<td>$Partname</td>");
+						print("<td>$Year</td>");
 						
 						print("</tr>\n");
 						}

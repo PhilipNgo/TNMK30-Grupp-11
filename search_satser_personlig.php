@@ -40,10 +40,11 @@
 			 {
 			  die("<p>MySQL error:</p>\n<p>" . mysqli_error($conn) . "</p>\n</body>\n</html>\n");
 			 }
+			
+			 $contents = mysqli_query($connection, "SELECT * FROM sets WHERE Setname LIKE '$search' OR SetID = '$search' OR Year = '$search'");
+			 $contents_color_search = mysqli_query($connection, "SELECT * FROM colors WHERE Colorname LIKE '$search' OR ColorID = '$search'");
 			 
-			 $contents = mysqli_query($connection, "SELECT * FROM sets WHERE Setname LIKE '$search'");
-			 
-			 if(mysqli_num_rows($contents) == 0) 
+			 if(mysqli_num_rows($contents And $contents_color_search) === 0) 
 			 {
 				print("<p>Inga bitar i din samling.</p>\n");
 			 } 
@@ -58,7 +59,10 @@
 			  print("<th>Color</th>");
 			  print("<th>SetID</th>");
 			  print("<th>Partname</th>");
+			  print("<th>Year</th>");
 			  print "</tr>\n";
+			  
+			  
 			  
 			  while($row = mysqli_fetch_array($contents)) 
 			  {
@@ -66,6 +70,7 @@
 				print("<tr>");
 				$Quantity = $row['Quantity'];
 				$SetID = $row['SetID'];
+				$ColorID = $row['ColorID'];
 				   
 				
 				$contents_collection = mysqli_query($connection, "SELECT * FROM collection WHERE SetID LIKE '$SetID'");
@@ -85,7 +90,7 @@
 					$prefix = "http://www.itn.liu.se/~stegu76/img.bricklink.com/";
 					$ItemID = $row['ItemID'];
 					$ColorID = $row['ColorID'];
-					$imagesearch = mysqli_query($connection, "SELECT * FROM images WHERE ItemTypeID='P' AND ItemID='$ItemID' AND ColorID=$ColorID");
+					$imagesearch = mysqli_query($connection, "SELECT * FROM images WHERE ItemTypeID='P' AND ItemID='$ItemID' AND ColorID='$ColorID'");
 				   
 					// By design, the query above should return exactly one row.
 					$imageinfo = mysqli_fetch_array($imagesearch);
@@ -106,11 +111,12 @@
 					}
 						
 					
-					$contents_setname = mysqli_query($connection, "SELECT sets.Setname FROM sets WHERE Setname LIKE '$search' AND SetID LIKE '$SetID'");
+					$contents_setname = mysqli_query($connection, "SELECT * FROM sets WHERE SetID LIKE '$SetID'");
 					
 					while($row = mysqli_fetch_array($contents_setname)) 
 					{
 					$Setname = $row['Setname'];
+					$Year = $row['Year'];
 					print("<td>$Setname</td>");
 					print("<td>$Quantity</td>");
 					print("<td><img src=\"$prefix$filename\" alt=\"Part $ItemID\"/></td>");
@@ -135,6 +141,7 @@
 						print("<td>$Colorname</td>");
 						print("<td>$SetID</td>");
 						print("<td>$Partname</td>");
+						print("<td>$Year</td>");
 						
 						print("</tr>\n");
 						}
