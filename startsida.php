@@ -13,10 +13,20 @@
 				<li><a href="links.html">Länk</a></li>
 			</ul>
 		</div>
-		<a href="search_satser.php"><h2>Sök</h2></a>
+		<?PHP
+
+	include("connect.php");
+
+	echo "<form method = 'post' action='search_satser.php'>
+	<input type='text' name='search'>
+	<input type='submit' value='Sök på Legosats'>
+	</form>";
+	?>
+		
 		<h3 id="intro-text">Hej Niklas! Här kommer din personliga sida för din lego samling. Ovanför i menyn kan du
 		se hela din samling, söka på saknade bitar för ditt nya projekt samt hitta länkar till olika sidor som
 		kan sälja de bitar du saknar!</h3>
 		</div>		
 	</body>
 </html>
+

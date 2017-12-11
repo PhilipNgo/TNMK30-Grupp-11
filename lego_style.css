@@ -34,6 +34,10 @@ li{
 	width: 490px;
 	font-size: 26px;
 }
+table, td, th {
+    border: 1px solid black;
+	border-collapse: collapse;
+}
 #tabell{
 	padding: 5vw;
 	display: block;
@@ -41,6 +45,8 @@ li{
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
+	border: 2px;
+	background-color: #BED0C8;
 }
 #header{
 	width: 1000px;
