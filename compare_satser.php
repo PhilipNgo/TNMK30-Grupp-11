@@ -1,23 +1,23 @@
 <?PHP
 
-
-	include('connect.php');
-
-	echo "<form method = 'post' action='search_satser.php'>
+	echo "<form method = 'post' action='compare_satser.php'>
 	<input type='text' name='search'>
 	<input type='submit' value='Sök på annan legosats'>
 	</form>";
 	echo "<form method = 'post' action='index.php'>
 	<input type='submit' value='Gå tillbaka'>
 	</form>";
+	
+	include('search_satser_personlig.php'); //Här är resultatet från personlig sats
+
 
 	$search = ($_POST["search"]); //lägg till real_escape string för säkerhet senare
 
-	$Setname_search = mysqli_query($connection,	"SELECT * FROM sets WHERE Setname = '$search' OR SetID = '$search'"); //Lägg till kod som hanterar duplikanter av samma namn och ger någon varningsruta
+	$Setname_search = mysqli_query($connection,	"SELECT * FROM sets WHERE Setname = '$search' OR SetID = '$search'"); //Här är resultatet från sökning
 
 	 
 	if (mysqli_num_rows($Setname_search) === 0) { 
-		echo "Satsen '".$search."' finns inte";
+		echo "'".$search."' gav inga resultat!";
 	}
 	else
 	{
@@ -58,9 +58,4 @@
 	}
 }
 
-
-	
-	
-
-	
 ?>
