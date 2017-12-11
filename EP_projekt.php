@@ -10,11 +10,11 @@
 		<div id="header">
 		<h1>Personlig Samling:</h1>
 			<ul>
-				<li><a href="startsida.html">Välkommen</a></li>
-				<li><a href="links.html">Länk</a></li>
+				<li><a class="knapp" href="startsida.php">Välkommen</a></li>
+				<li><a class="knapp" href="links.html">Länk</a></li>
 			</ul>
 		</div>
-		<div id="tabell">
+		<div class="tabell">
 		<?PHP
 
 
@@ -24,10 +24,6 @@
 	<input type='text' name='search'>
 	<input type='submit' value='Sök på annan legosats'>
 	</form>";
-	echo "<form method = 'post' action='index.php'>
-	<input type='submit' value='Gå tillbaka'>
-	</form>";
-
 	$search = strip_tags($_POST["search"]); //lägg till real_escape string för säkerhet senare
 
 	$Setname_search = mysqli_query($connection,	"SELECT * FROM sets WHERE Setname = '$search'"); //Lägg till kod som hanterar duplikantor av samma namn och ger någon varningsruta
@@ -37,9 +33,8 @@
 	
 	?>
 		</div>
-		
 		<br>
-		<div id="tabell">
+		<div class="tabell">
 			<?php
 			 $conn = mysqli_connect("mysql.itn.liu.se","lego","","lego");
 			 if(mysqli_errno($conn)) 
@@ -108,7 +103,7 @@
 					}
 					else 
 					{ // If neither format is available, insert a placeholder image
-					 $filename = "P/$ColorID/$ItemID.jpg";
+					 $filename = "hej";
 					}
 					print("<td>$Quantity</td>");
 					print("<td><img src=\"$prefix$filename\" alt=\"Part $ItemID\"/></td>");
@@ -117,28 +112,29 @@
 				
 					
 				
-				$colorsearch = mysqli_query($connection, "SELECT colors.Colorname FROM colors WHERE colors.ColorID LIKE '$ColorID'");
-				
-				while($row = mysqli_fetch_array($colorsearch))
-					{
-						$Colorname = $row['Colorname'];
-						
-						$partsearch= mysqli_query($connection, "SELECT parts.Partname FROM parts WHERE parts.partID LIKE '$ItemID'");
-						while($row = mysqli_fetch_array($partsearch))
+					$colorsearch = mysqli_query($connection, "SELECT colors.Colorname FROM colors WHERE colors.ColorID LIKE '$ColorID'");
+					
+					while($row = mysqli_fetch_array($colorsearch))
 						{
+							$Colorname = $row['Colorname'];
 							
-						$Partname = $row['Partname'];
-						print("<td>$Colorname</td>");
-						print("<td>$SetID</td>");
-						print("<td>$Partname</td>");
-						
-						print("</tr>\n");
+							$partsearch= mysqli_query($connection, "SELECT parts.Partname FROM parts WHERE parts.partID LIKE '$ItemID'");
+							while($row = mysqli_fetch_array($partsearch))
+							{
+								
+							$Partname = $row['Partname'];
+							print("<td>$Colorname</td>");
+							print("<td>$SetID</td>");
+							print("<td>$Partname</td>");
+							}
 						}
+						print("</tr>\n");
 					}
-				} 
+					
+				}
+			
 			 }
 			  print("</table>\n");
-			 }
 			 
 			 
 			 // An additional query for minifigs is required to show the full contents of a typical set.

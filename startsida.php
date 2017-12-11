@@ -9,19 +9,21 @@
 		<div id="block">
 		<div id="header"><h1>Lego</h1>
 			<ul>
-				<li><a href="EP_projekt.php">Din lego samling</a></li>
-				<li><a href="links.html">Länk</a></li>
+				<li><a class="knapp" href="EP_projekt.php">Lego samling</a></li>
+				<li><a class="knapp" href="links.html">Länk</a></li>
 			</ul>
 		</div>
+		<div id="sok">
 		<?PHP
 
-	include("connect.php");
+			include("connect.php");
 
-	echo "<form method = 'post' action='search_satser.php'>
-	<input type='text' name='search'>
-	<input type='submit' value='Sök på Legosats'>
-	</form>";
-	?>
+			echo "<form method = 'post' action='search_satser.php'>
+			<input type='text' name='search'>
+			<input type='submit' value='Sök på Legosats'>
+			</form>";
+		?>
+		</div>
 		
 		<h3 id="intro-text">Hej Niklas! Här kommer din personliga sida för din lego samling. Ovanför i menyn kan du
 		se hela din samling, söka på saknade bitar för ditt nya projekt samt hitta länkar till olika sidor som
