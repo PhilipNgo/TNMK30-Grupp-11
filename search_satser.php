@@ -11,25 +11,27 @@
 	<input type='submit' value='Gå tillbaka'>
 	</form>";
 
-	$search = strip_tags($_POST["search"]); //lägg till real_escape string för säkerhet senare
+	$search = ($_POST["search"]); //lägg till real_escape string för säkerhet senare
 
-	$Setname_search = mysqli_query($connection,	"SELECT * FROM sets WHERE Setname = '$search'"); //Lägg till kod som hanterar duplikantor av samma namn och ger någon varningsruta
+	$Setname_search = mysqli_query($connection,	"SELECT * FROM sets WHERE Setname = '$search'"); //Lägg till kod som hanterar duplikanter av samma namn och ger någon varningsruta
 
 	
 	$convert_nametoID = mysqli_query($connection, "SELECT SetID, Year FROM sets WHERE Setname = '$search'");
 	 
 	 
-	 
+	if (mysqli_num_rows($Setname_search) === 0) { 
+		echo "Inga resultat!";
+	}
+	else
+	{
 	while($row = mysqli_fetch_array($Setname_search)) //Sökning på sats. OBS!: kan ge mer än ett resultat
 	{	
-		$result_sats_name = $row['Setname'];
-		$result_sats_Year = $row['Year'];
 		
-	
-
 	while($row3 = mysqli_fetch_array($convert_nametoID)) //Konversion till ID från Setname
 		{	
 		$result_setID = $row3['SetID'];
+		$result_sats_name = $row['Setname'];
+		$result_sats_Year = $row['Year'];
 		
 			echo "<table><tr>";
 			echo "<th>Sats</th>";
@@ -59,10 +61,11 @@
 		}
 		}
 	}
+}
+
+
+	
 	
 
 	
 ?>
-
-
-
