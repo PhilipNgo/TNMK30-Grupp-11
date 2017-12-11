@@ -17,7 +17,7 @@
 
 	 
 	if (mysqli_num_rows($Setname_search) === 0) { 
-		echo "<div id='Nope'>'".$search."' gav inga resultat!</div>";
+		echo "'".$search."' gav inga resultat!";
 	}
 	else
 	{

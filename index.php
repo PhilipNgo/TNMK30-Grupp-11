@@ -9,7 +9,7 @@
 	</form>";
 	
 	echo "<form method = 'post' action='index.php'>
-	<input type='submit' value='Gå tillbaka'>
+	<input type='submit' value='Rensa'>
 	</form>";
 
 echo "<img src='index.png' alt = 'kebba'>";

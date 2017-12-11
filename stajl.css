@@ -1,0 +1,9 @@
+body
+{
+	background-image:url('legotexture.png');
+}
+table, th, td
+{
+	border:2px solid black;
+	background-color:gray;
+}
