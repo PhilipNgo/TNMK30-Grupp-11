@@ -29,10 +29,10 @@
 		så kanske dessa sidor kan hjälpa dig att hitt det du behöver</h3>
 		
 		<div id="lankar">
-			<ul>
-				<li class="links"><a  href="https://ebrix.se/">Ebrix</a></li> <br> 
-				<li class="links"><a  href="https://www.brickowl.com/">Brick Owl</a></li><br> 
-				<li class="links"><a  href="https://www.bricklink.com/v2/main.page">Bricklink</a></li>
+			<ul class="links">
+				<li><a class="knapp" href="https://ebrix.se/">Ebrix</a></li><br>
+				<li><a class="knapp" href="https://www.brickowl.com/">Brick Owl</a></li><br>
+				<li><a class="knapp" href="https://www.bricklink.com/v2/main.page">Bricklink</a></li>
 			</ul>
 		</div>
 		</div>		
