@@ -15,9 +15,6 @@
 
 	$Setname_search = mysqli_query($connection,	"SELECT * FROM sets WHERE Setname = '$search' OR SetID = '$search'"); //Lägg till kod som hanterar duplikanter av samma namn och ger någon varningsruta
 
-	
-	//$convert_nametoID = mysqli_query($connection, "SELECT SetID, Year FROM sets WHERE Setname = '$search'");
-	 
 	 
 	if (mysqli_num_rows($Setname_search) === 0) { 
 		echo "<div id='Nope'>'".$search."' gav inga resultat!</div>";
@@ -25,10 +22,7 @@
 	else
 	{
 	while($row = mysqli_fetch_array($Setname_search)) //Sökning på sats. OBS!: kan ge mer än ett resultat
-	{	
-		
-		//vad menas med uppgiften
-		
+	{			
 		$result_setID = $row['SetID'];
 		$result_sats_Year = $row['Year'];
 		$result_sats_name = $row['Setname'];
